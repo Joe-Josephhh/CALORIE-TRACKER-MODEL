@@ -1,0 +1,71 @@
+# ==========================================
+# Git Ignore for Food Classification Project
+# ==========================================
+
+# --- Python & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Jupyter Notebook Checkpoints ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- IDEs & Code Editors ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# --- OS Specific Files ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Large Datasets ---
+# The raw training images (~360 MB, thousands of files) should not be pushed to GitHub.
+Indian Food Images/
+
+# --- Model Checkpoints (Optional) ---
+# GitHub has a 100 MB file limit. Your .keras files are ~18 MB and ~30 MB (within limits).
+# If you prefer to exclude large model weights from your Git repository, uncomment below:
+# outputs/checkpoints/*.keras
+
+# --- Logs & Temporary Files ---
+*.log
+scratch/
+temp/
+tmp/

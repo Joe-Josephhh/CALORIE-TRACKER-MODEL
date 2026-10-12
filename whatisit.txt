@@ -1,0 +1,48 @@
+[01_data_exploration.py]  ➔  Inspect & validate the 80 Indian food image classes
+          │
+[02_data_pipeline.py]     ➔  Split dataset (70/15/15) & build tf.data pipelines
+          │
+[03_model_build_and_train.py] ➔  Build EfficientNetB0 base & train head ➔ best_model.keras
+          │
+[05_fine_tune.py]         ➔  Unfreeze backbone & fine-tune ➔ best_model_finetuned.keras ★
+          │
+[06_predict.py]           ➔  Load that model & run inference on new food photos
+How Each Program Connects to That Model:
+
+
+01_data_exploration.py
+ (Data Discovery)
+Inspects the raw dataset of 80 food categories, checks class balance, and confirms dimensions before training.
+
+
+
+02_data_pipeline.py
+ (Data Preparation)
+Creates the stratified 70/15/15 train, validation, and test splits in 
+
+configs/
+ so the model trains reproducibly.
+
+
+
+03_model_build_and_train.py
+ (Base Model Training)
+Builds the EfficientNetB0 transfer learning architecture (frozen backbone + classification head) and saves the initial checkpoint: 
+
+best_model.keras
+.
+
+
+
+05_fine_tune.py
+ (Final Model Creation - Your Ultimate Goal)
+Loads the base model, unfreezes the top 30 layers of the EfficientNet backbone, trains at a lower learning rate ($10^{-5}$), and produces 
+
+best_model_finetuned.keras
+.
+
+
+
+06_predict.py
+ (Model Verification & Testing)
+Loads that exact best_model_finetuned.keras and tests it on real images to confirm its accuracy and output top predictions.
