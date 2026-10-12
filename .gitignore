@@ -59,10 +59,10 @@ $RECYCLE.BIN/
 # The raw training images (~360 MB, thousands of files) should not be pushed to GitHub.
 Indian Food Images/
 
-# --- Model Checkpoints (Optional) ---
-# GitHub has a 100 MB file limit. Your .keras files are ~18 MB and ~30 MB (within limits).
-# If you prefer to exclude large model weights from your Git repository, uncomment below:
-# outputs/checkpoints/*.keras
+# --- Model Checkpoints ---
+# Ignore intermediate base model, keep ONLY the final fine-tuned model
+outputs/checkpoints/best_model.keras
+!outputs/checkpoints/best_model_finetuned.keras
 
 # --- Logs & Temporary Files ---
 *.log
