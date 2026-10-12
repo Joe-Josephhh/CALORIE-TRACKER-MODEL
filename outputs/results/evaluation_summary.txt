@@ -1,0 +1,34 @@
+======================================================================
+EVALUATION SUMMARY — BEST_MODEL_FINETUNED.KERAS
+======================================================================
+
+Test Images:     600
+Total Classes:   80
+Top-1 Accuracy:  60.00%
+Top-5 Accuracy:  88.33%
+Macro F1-Score:  0.5961
+Weighted F1:     0.5974
+
+TOP 10 BEST PERFORMING DISHES:
+   1. modak                               F1: 1.00
+   2. lassi                               F1: 0.93
+   3. naan                                F1: 0.93
+   4. palak_paneer                        F1: 0.93
+   5. pootharekulu                        F1: 0.93
+   6. mysore_pak                          F1: 0.88
+   7. chak_hao_kheer                      F1: 0.86
+   8. gavvalu                             F1: 0.86
+   9. ghevar                              F1: 0.86
+  10. makki_di_roti_sarson_da_saag        F1: 0.86
+
+TOP 10 MOST CONFUSED PAIRS:
+   1. True: gulab_jamun                    -> Predicted: ledikeni                       (Count: 5)
+   2. True: boondi                         -> Predicted: chana_masala                   (Count: 3)
+   3. True: chicken_tikka                  -> Predicted: chicken_tikka_masala           (Count: 3)
+   4. True: imarti                         -> Predicted: jalebi                         (Count: 3)
+   5. True: sohan_halwa                    -> Predicted: chikki                         (Count: 3)
+   6. True: aloo_shimla_mirch              -> Predicted: kadai_paneer                   (Count: 2)
+   7. True: ariselu                        -> Predicted: adhirasam                      (Count: 2)
+   8. True: bandar_laddu                   -> Predicted: poornalu                       (Count: 2)
+   9. True: basundi                        -> Predicted: doodhpak                       (Count: 2)
+  10. True: basundi                        -> Predicted: rabri                          (Count: 2)
