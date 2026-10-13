@@ -21,13 +21,42 @@ from sklearn.metrics import confusion_matrix, classification_report
 import tensorflow as tf
 from tensorflow.keras.applications.efficientnet import preprocess_input
 
+import argparse
+
 # ---- Configuration ----
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 CONFIG_DIR = Path("configs")
-RESULTS_DIR = Path("outputs/results")
 CHECKPOINT_PATH = Path("outputs/checkpoints/best_model_finetuned.keras")
+
+parser = argparse.ArgumentParser(description="Evaluate Indian Food Model")
+parser.add_argument("--output-dir", type=str, default="outputs/results", help="Directory to save evaluation results")
+args, _ = parser.parse_known_args()
+
+RESULTS_DIR = Path(args.output_dir)
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+DATASET_BASE = Path(r"J:\padutham\DataSets\Indian Food Images\Indian Food Images")
+FOLDER_MAPPING = {
+    'Pea potato curry (Aloo matar)': 'aloo_matar',
+    'Potato fenugreek (Aloo methi)': 'aloo_methi',
+    'Bhatura': 'bhatura',
+    'ChapatiRoti': 'chapati',
+    'Potato cauliflower (Aloo gobhi)': 'aloo_gobi',
+    'Rasgulla': 'rasgulla',
+    'Flattened rice cutlet (Chirwa cutletChivda cutletPoha cutlet)': 'poha',
+    'Papdi': 'sohan_papdi'
+}
+
+def resolve_filepath(raw_path, label):
+    p = Path(raw_path)
+    if p.exists():
+        return str(p)
+    candidate = DATASET_BASE / FOLDER_MAPPING.get(label, label) / p.name
+    if candidate.exists():
+        return str(candidate)
+    return str(raw_path)
+
 
 # ---- Step 1: Model Loading & System Benchmark ----
 print("=" * 70)
@@ -81,10 +110,12 @@ def preprocess_image(filepath, label):
     return image, label
 
 
+resolved_test_paths = [resolve_filepath(fp, lbl) for fp, lbl in zip(test_df["filepath"], test_df["label"])]
 test_ds = tf.data.Dataset.from_tensor_slices((
-    test_df["filepath"].values,
+    resolved_test_paths,
     test_df["label"].map(class_to_idx).values
 )).map(preprocess_image, num_parallel_calls=tf.data.AUTOTUNE).batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
+
 
 y_true = test_df["label"].map(class_to_idx).values
 raw_preds = model.predict(test_ds, verbose=1)

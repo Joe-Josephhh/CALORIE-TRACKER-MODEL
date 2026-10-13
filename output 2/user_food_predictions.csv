@@ -1,0 +1,12 @@
+filename,top1_predicted,top1_confidence_pct,top2_predicted,top2_confidence_pct,top3_predicted,top3_confidence_pct
+biriyani.jpg,biryani,99.05,sutar_feni,0.86,sheer_korma,0.04
+butterchicken.jpg,butter_chicken,41.65,gajar_ka_halwa,22.79,paneer_butter_masala,19.14
+butterchikenwithrice.jpg,sheera,18.6,double_ka_meetha,18.3,kalakand,16.52
+chapathiwithpalakpaneer.jpg,palak_paneer,58.87,karela_bharta,9.67,daal_puri,9.52
+images (1).jpg,Bhatura,85.81,daal_puri,11.86,ChapatiRoti,1.7
+images (2).jpg,paneer_butter_masala,83.98,butter_chicken,11.22,chicken_tikka_masala,2.79
+images (3).jpg,unni_appam,91.66,bandar_laddu,5.66,dharwad_pedha,1.1
+images.jpg,butter_chicken,28.84,naan,17.15,chicken_tikka,16.09
+jalebi.jpg,jalebi,77.73,imarti,22.27,ghevar,0.0
+ricewithpalekpanner.jpg,palak_paneer,84.06,karela_bharta,14.28,bhindi_masala,0.52
+soanpapdiwithjalebi.jpg,sutar_feni,28.12,ChapatiRoti,21.0,shrikhand,15.71
